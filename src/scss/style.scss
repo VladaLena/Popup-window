@@ -1,0 +1,145 @@
+@use "sass:math";
+
+// Подключение миксинов ===========================================================================================================================================================================================================================================================================
+@import "base/mixins";
+
+// Подключение шрифтов ===========================================================================================================================================================================================================================================================================
+//&display=swap - добавить при подключении через плагин
+// Подключить если есть локальные файлы шрифтов
+//@import "fonts/fonts";
+
+// Подключение иконочных шрифтов ==============================================================================================================================================================================================================================================================================
+// Подключить если есть файл иконочного шрифта
+//@import "fonts/icons";
+
+// Шрифт по умолчанию ==============================================================================================================================================================================================================================================================================
+$fontFamily: "";
+$fontSize: rem(14); // где 14(px) - размер шрифта по умолчанию из макета
+
+// Основные цвета
+$mainColor: #000; // Цвет шрифта по умолчанию
+
+// Обнуление и общие параметры ============================================================================================================================================================================================== =============================================================================================== ===============================================================================================
+@import "base/null";
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container.active {
+  filter: blur(5px) brightness(0.7);
+}
+
+.popup.active {
+  visibility: visible;
+  opacity: 1;
+  top: 50%;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  background: url("https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  background-size: cover;
+  text-align: center;
+  transition: filter 0.7s;
+  // .container__btn
+
+  &__btn {
+    padding: 10px 20px;
+    width: 200px;
+    cursor: pointer;
+    margin-top: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: #fff;
+    transition: filter 0.25s linear;
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+}
+h1 {
+  font-size: 50px;
+  color: #fff;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  letter-spacing: 4px;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 1);
+}
+.popup {
+  visibility: hidden;
+  position: fixed;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  width: 400px;
+  height: 200px;
+  padding: 20px;
+  background: url("https://images.unsplash.com/photo-1529236183275-4fdcf2bc987e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=867&q=80");
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  transition: all 0.7s linear;
+  opacity: 0;
+}
+h4 {
+  font-size: 25px;
+  color: rgba(0,0,0,0.9);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 15px;
+}
+label {
+  color: rgba(0,0,0,0.9);
+  font-size: 20px;
+  font-weight: 600;
+}
+.input {
+  font-size: 20px;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 3px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  margin: 10px 0;
+}
+.input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+
+.popup__btn {
+  margin: 0px 125px;
+  margin-top: 15px;
+  color: #000;
+  background-color: #fff;
+  width: 100px;
+  height: 28px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+}
+.close-icon {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  transition: transform 0.4s linear;
+}
+.close-icon:hover {
+  transform: rotate(180deg);
+}
+
+.fa-solid {
+}
+.fa-xmark {
+}
+.fa-2x {
+}
+
+// Подключение стилей отдельных блоков
+@import "header";
+@import "footer";
